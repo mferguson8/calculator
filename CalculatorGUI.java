@@ -11,14 +11,18 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
     public CalculatorGUI() {
         // Create and configure the JFrame
-        setTitle("Simple Calculator");
+        setTitle("Aesthetic Calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 400);
+        setResizable(false);
+        setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        getContentPane().setBackground(new Color(255, 255, 255));
 
         // Create and add the text field for input and display
         textField = new JTextField();
-        textField.setFont(new Font("Arial", Font.PLAIN, 20));
+        textField.setFont(new Font("Arial", Font.PLAIN, 28));
+        textField.setBackground(new Color(240, 240, 240));
         textField.setEditable(false);
         textField.setHorizontalAlignment(JTextField.RIGHT);
         add(textField, BorderLayout.NORTH);
@@ -34,7 +38,8 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
-            button.setFont(new Font("Arial", Font.PLAIN, 20));
+            button.setFont(new Font("Arial", Font.PLAIN, 24));
+            button.setBackground(new Color(200, 200, 200));
             button.addActionListener(this);
             buttonsPanel.add(button);
         }
@@ -97,6 +102,12 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             CalculatorGUI calculator = new CalculatorGUI();
             calculator.setVisible(true);
         });
