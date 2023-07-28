@@ -11,7 +11,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
     public CalculatorGUI() {
         // Create and configure the JFrame
-        setTitle("Aesthetic Calculator");
+        setTitle("Calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 400);
         setResizable(false);
